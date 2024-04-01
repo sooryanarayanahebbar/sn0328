@@ -89,7 +89,7 @@ public class RentalAgreementDto {
                 "   Pre-discount Charge-----: " + ToolsRentalHelper.roundHalfUpAndUSCurrencyFormat(preDiscountCharge) + "\n" +
                 "   Discount Percentage-----: " + discountPercent + "%" + "\n" +
                 "   Discount Amount---------: " + ToolsRentalHelper.roundHalfUpAndUSCurrencyFormat(discountAmount) + "\n" +
-                "   Final Charge------------: " + finalCharge + "\n" +
+                "   Final Charge------------: $" + finalCharge + "\n" +
                 "----------------------------------------------------\n";
     }
 
