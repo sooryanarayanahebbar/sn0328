@@ -152,7 +152,7 @@ public class ToolRental {
         rentalAgreementDto = new RentalAgreementDto(
                 this.toolCode,
                 toolsDetails.toolType.getName(),
-                toolsDetails.toolType.getName(),
+                toolsDetails.toolType.getToolBrand().getName(),
                 this.rentalDays,
                 this.checkOutDate,
                 this.dueDate,
