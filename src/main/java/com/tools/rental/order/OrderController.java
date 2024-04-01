@@ -1,19 +1,14 @@
 package com.tools.rental.order;
 
-import com.tools.rental.admin.brand.ToolBrand;
-import com.tools.rental.admin.tool.ToolDetails;
 import com.tools.rental.admin.tool.ToolService;
-import com.tools.rental.product.ProductDto;
-import com.tools.rental.product.ProductService;
+import com.tools.rental.model.dto.ApplicationResponse;
+import com.tools.rental.model.dto.OrderResponse;
 import com.tools.rental.util.ToolsRentalHelper;
-import io.swagger.v3.core.util.Json;
-import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,33 +18,55 @@ import java.util.List;
 public class OrderController {
 
 
-	private final ProductService productService;
-	private final ToolService toolService;
+    private final OrderService orderService;
+    private final ToolService toolService;
 
+    @RequestMapping("/health")
+    public @ResponseBody String greeting() {
+        return "I am Okay!!";
+    }
 
-	@PostMapping
-	@ResponseStatus(value = HttpStatus.OK)
-	public String checkout(@RequestBody @Valid List<OrderDto> orderList) {
+    @PostMapping
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "/orders")
+    public ApplicationResponse checkout(@RequestBody List<OrderDto> orderList) {
 
-		List<String> errors = ToolsRentalHelper.validateOrders(orderList);
+        List<String> errors = ToolsRentalHelper.validateOrders(orderList);
 
-		if(errors.isEmpty()) {
-		for(OrderDto dto : orderList) {
-			ToolDetails toolsDetails = toolService.toolDetailsByCode(dto.getToolCode());
+        if (errors.isEmpty()) {
+            OrderResponse response = orderService.checkoutProcess(orderList);
+            return new ApplicationResponse("SUCCESS", HttpStatus.OK.toString(), "/checkout", response, null);
+        } else {
+            ApplicationResponse response = new ApplicationResponse("Validation Errors", HttpStatus.BAD_REQUEST.toString(), "/checkout", null, errors);
+            return response;
+        }
 
-		}
-			//System.out.println(Json.pretty(orderList).toString());
-			//System.out.println(Json.pretty(orderList).toString());
-			//System.out.println("*********************************************");
-			//System.out.println(Json.pretty(toolsDetails).toString());
-			return "SUCCESS";//this.productService.addToolBrand(dto);
-		}
+    }
 
-		return "TRUE";
-	}
+    @PostMapping
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "/order")
+    public ApplicationResponse checkout(@RequestBody OrderDto order) {
 
-	
-	
+        List<String> errors = ToolsRentalHelper.validateOrders(order);
+
+        if (errors.isEmpty()) {
+            List<OrderDto> orderList = new ArrayList<>(1);
+            orderList.add(order);
+            OrderResponse response = orderService.checkoutProcess(orderList);
+            return new ApplicationResponse("SUCCESS", HttpStatus.OK.toString(), "/checkout", response, null);
+        } else {
+            System.out.println("\n****************************************************\n");
+            System.out.println("-------------------- Error ---------------------------\n");
+            for (String error : errors)
+                System.out.println(error);
+            System.out.println("\n*************** Please verify you request **********\n");
+            ApplicationResponse response = new ApplicationResponse("Validation Errors", HttpStatus.BAD_REQUEST.toString(), "/checkout", null, errors);
+            return response;
+        }
+
+    }
+
 
 }
 

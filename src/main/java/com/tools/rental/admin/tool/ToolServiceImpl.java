@@ -1,53 +1,29 @@
 package com.tools.rental.admin.tool;
 
-import java.util.List;
-import java.util.Optional;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ToolServiceImpl implements ToolService {
 
-	ToolRepository toolRepository;
 
-	public List<ToolDetails> toolDetails() {
+    private final Map<String, ToolDetailsBean> toolDetailsBeansMap;
 
-		List<ToolDetails> entities = toolRepository.findAll();
+    public List<ToolDetailsBean> toolDetails() {
+        List<ToolDetailsBean> entities = new ArrayList<ToolDetailsBean>(toolDetailsBeansMap.size());
+        entities.addAll(toolDetailsBeansMap.values());
+        return entities;
+    }
 
-		return entities;
+    @Override
+    public ToolDetailsBean toolDetailsByCode(String code) {
+        return toolDetailsBeansMap.get(String.valueOf(code));
+    }
 
-	}
-
-	@Override
-	public ToolDetails addToolDetails(ToolDetails entity) {
-		return this.toolRepository.save(entity);
-	}
-
-	@Override
-	public ToolDetails toolDetailsByCode(String code) {
-
-		Optional<ToolDetails> entity = this.toolRepository.findByCode(code);
-
-		return entity.get();
-	}
-
-	@Override
-	public ToolDetails updateToolDetails(String code, ToolDetails dto) {
-
-		ToolDetails entity = this.toolRepository.findByCode(code).get();
-
-		
-		entity.setName(dto.getName());
-		entity.setTotalUnits(dto.getTotalUnits());
-		entity.setAvailableUnits(dto.getAvailableUnits());
-		
-		
-		this.toolRepository.save(entity);
-
-		return entity;
-	}
 
 }

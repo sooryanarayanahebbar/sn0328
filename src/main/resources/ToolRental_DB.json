@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "toolCode": "CHNS",
+        "name": "CHNS",
+        "totalUnits": "1150",
+        "availableUnits": "100",
+        "status": true,
+        "toolType": {
+            "id": 1,
+            "typeCode": "Chainsaw",
+            "name": "Chainsaw",
+            "amount": 30.0,
+            "daysDailyChargeApplies": "MONDAY,TUESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY",
+            "weekendDiscountInPercentage": 0,
+            "holidayDiscountInPercentage": 0,
+            "toolBrand": {
+                "id": 1,
+                "brandCode": "Stihl",
+                "name": "Stihl",
+                "descriptions": "Stihl"
+            },
+            "noChargeOnHoliday": true,
+            "noChargeOnWeekend": true
+        }
+    },
+    {
+        "id": 2,
+        "toolCode": "LADW",
+        "name": "LADW",
+        "totalUnits": "350",
+        "availableUnits": "335",
+        "status": true,
+        "toolType": {
+            "id": 2,
+            "typeCode": "Ladder",
+            "name": "Ladder",
+            "amount": 40.0,
+            "daysDailyChargeApplies": "MONDAY,TUESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY",
+            "weekendDiscountInPercentage": 0,
+            "holidayDiscountInPercentage": 0,
+            "toolBrand": {
+                "id": 2,
+                "brandCode": "Werner",
+                "name": "Werner",
+                "descriptions": "Werner"
+            },
+            "noChargeOnHoliday": true,
+            "noChargeOnWeekend": true
+        }
+    },
+    {
+        "id": 3,
+        "toolCode": "JAKD",
+        "name": "JAKD",
+        "totalUnits": "528",
+        "availableUnits": "320",
+        "status": true,
+        "toolType": {
+            "id": 3,
+            "typeCode": "Jackhammer",
+            "name": "Jackhammer",
+            "amount": 35.0,
+            "daysDailyChargeApplies": "MONDAY,TUESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY",
+            "weekendDiscountInPercentage": 0,
+            "holidayDiscountInPercentage": 0,
+            "toolBrand": {
+                "id": 3,
+                "brandCode": "DeWalt",
+                "name": "DeWalt",
+                "descriptions": "DeWalt"
+            },
+            "noChargeOnHoliday": true,
+            "noChargeOnWeekend": true
+        }
+    },
+    {
+        "id": 4,
+        "toolCode": "JAKR",
+        "name": "JAKR",
+        "totalUnits": "450",
+        "availableUnits": "379",
+        "status": true,
+        "toolType": {
+            "id": 3,
+            "typeCode": "Jackhammer",
+            "name": "Jackhammer",
+            "amount": 35.0,
+            "daysDailyChargeApplies": "MONDAY,TUESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY",
+            "weekendDiscountInPercentage": 0,
+            "holidayDiscountInPercentage": 0,
+            "toolBrand": {
+                "id": 4,
+                "brandCode": "Ridgid",
+                "name": "Ridgid",
+                "descriptions": "Ridgid"
+            },
+            "noChargeOnHoliday": true,
+            "noChargeOnWeekend": true
+        }
+    }
+]
