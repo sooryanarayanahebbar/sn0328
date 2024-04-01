@@ -64,8 +64,8 @@ public class ToolsRentalDemoApplication {
                 System.out.println("TEST CASE - 04");
                 var order4 = OrderDto.builder()
                         .toolCode("JAKD")
-                        .checkOutDate("9/9/15")
-                        .rentalDays(9)
+                        .checkOutDate("9/3/15")
+                        .rentalDays(6)
                         .discount(0)
                         .build();
                 System.out.println("TEST CASE - 04: INPUT: " + order4.toString());
@@ -76,10 +76,10 @@ public class ToolsRentalDemoApplication {
             try {
                 System.out.println("TEST CASE - 05");
                 var order5 = OrderDto.builder()
-                        .toolCode("LADW")
-                        .checkOutDate("02/2/24")
-                        .rentalDays(5)
-                        .discount(10)
+                        .toolCode("JAKR")
+                        .checkOutDate("7/2/15")
+                        .rentalDays(9)
+                        .discount(0)
                         .build();
                 System.out.println("TEST CASE - 05: INPUT: " + order5.toString());
                 orderController.checkout(order5);
