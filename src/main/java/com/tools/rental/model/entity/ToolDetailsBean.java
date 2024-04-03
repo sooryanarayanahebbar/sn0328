@@ -1,6 +1,5 @@
-package com.tools.rental.admin.tool;
+package com.tools.rental.model.entity;
 
-import com.tools.rental.admin.type.ToolTypeBean;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

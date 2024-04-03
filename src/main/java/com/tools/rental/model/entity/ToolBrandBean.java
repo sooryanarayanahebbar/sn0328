@@ -1,4 +1,4 @@
-package com.tools.rental.admin.brand;
+package com.tools.rental.model.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

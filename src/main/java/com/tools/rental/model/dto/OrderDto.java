@@ -1,4 +1,4 @@
-package com.tools.rental.order;
+package com.tools.rental.model.dto;
 
 import lombok.Builder;
 import lombok.Data;

@@ -7,3 +7,19 @@ spring:
 springdoc:
   swagger-ui:
     path: /swagger-ui-custom.html
+
+    
+application:
+  message:
+    errors:
+      validation:
+        order:
+          payload:
+            emptyData: Please place the Order
+            emptyToolCode: toolCode is required field.
+            invalidRentalDays: rentalDays is required field. Min value would be 1.
+            invalidRentalDaysIsToobig: RentalDays is too big
+            invalidDiscount: Please enter valid value. Discount input range between 1 to 100
+            invalidCheckoutDate: Checkout Date is required field.
+            invalidCheckoutDateFormat: Please enter valid date. 'MM/dd/yy' format.
+             

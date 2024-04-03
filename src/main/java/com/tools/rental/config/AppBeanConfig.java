@@ -4,7 +4,8 @@ package com.tools.rental.config;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import com.tools.rental.admin.tool.ToolDetailsBean;
+import com.tools.rental.model.entity.ToolDetailsBean;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,12 +17,12 @@ import java.util.List;
 import java.util.Map;
 
 @Configuration
-public class AppRepositoryConfig {
+public class AppBeanConfig {
     private static final Type REVIEW_TYPE = new TypeToken<List<ToolDetailsBean>>() {
     }.getType();
 
     @Bean
-    public Map<String, ToolDetailsBean> toolDetailsBeansMap() {
+    Map<String, ToolDetailsBean> toolDetailsBeansMap() {
 
         Map<String, ToolDetailsBean> mapToolDetails = new HashMap<>();
 
@@ -30,7 +31,7 @@ public class AppRepositoryConfig {
         try {
             reader = new JsonReader(new FileReader("src/main/resources/ToolRental_DB.json"));
 
-            List<ToolDetailsBean> data = gson.fromJson(reader, REVIEW_TYPE); // contains the whole reviews list
+            List<ToolDetailsBean> data = gson.fromJson(reader, REVIEW_TYPE);
             if (data != null) {
                 for (ToolDetailsBean bean : data) {
                     System.out.println("Tool Code: " + bean.getToolCode());
@@ -42,6 +43,11 @@ public class AppRepositoryConfig {
             throw new RuntimeException(e);
         }
         return mapToolDetails;
+    }
+    
+    @Bean
+    OrderPayloadMessageProps orderPayloadMessageProps() {
+    	return new OrderPayloadMessageProps();
     }
 
 }

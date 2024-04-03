@@ -12,8 +12,6 @@
             "name": "Chainsaw",
             "amount": 30.0,
             "daysDailyChargeApplies": "MONDAY,TUESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY",
-            "weekendDiscountInPercentage": 0,
-            "holidayDiscountInPercentage": 0,
             "toolBrand": {
                 "id": 1,
                 "brandCode": "Stihl",
@@ -37,8 +35,6 @@
             "name": "Ladder",
             "amount": 40.0,
             "daysDailyChargeApplies": "MONDAY,TUESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY",
-            "weekendDiscountInPercentage": 0,
-            "holidayDiscountInPercentage": 0,
             "toolBrand": {
                 "id": 2,
                 "brandCode": "Werner",
@@ -62,8 +58,6 @@
             "name": "Jackhammer",
             "amount": 35.0,
             "daysDailyChargeApplies": "MONDAY,TUESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY",
-            "weekendDiscountInPercentage": 0,
-            "holidayDiscountInPercentage": 0,
             "toolBrand": {
                 "id": 3,
                 "brandCode": "DeWalt",
@@ -87,8 +81,6 @@
             "name": "Jackhammer",
             "amount": 35.0,
             "daysDailyChargeApplies": "MONDAY,TUESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY",
-            "weekendDiscountInPercentage": 0,
-            "holidayDiscountInPercentage": 0,
             "toolBrand": {
                 "id": 4,
                 "brandCode": "Ridgid",

@@ -1,6 +1,5 @@
-package com.tools.rental.admin.type;
+package com.tools.rental.model.entity;
 
-import com.tools.rental.admin.brand.ToolBrandBean;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,10 +21,6 @@ public class ToolTypeBean {
     private Double amount;
 
     private String daysDailyChargeApplies;
-
-    private Integer weekendDiscountInPercentage;
-
-    private Integer holidayDiscountInPercentage;
 
     private boolean isNoChargeOnWeekend;
 
